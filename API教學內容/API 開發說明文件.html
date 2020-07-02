@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8 -->
+<html lang="zh-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="csrf-token" content="gBufos93-CDnQKIK5kcuJyKnFeH2-mFG_lIQ">
+    
+    
+    <meta name="description" content=" &lt;center&gt;【Gotcha! 我抓得住你 - AML 焦點人物辨識】   API 開發說明文件&lt;/center&gt; --- ## Introduction 各位玉山人工智慧公開挑戰賽的參賽者們，本">
+    
+    <title>HackMD - Markdown 協作知識庫</title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+	<link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+    
+<script src="./API 開發說明文件_files/rules-p-GpPtabXgUQ99B.js.下載" async=""></script><script type="text/javascript" async="" src="./API 開發說明文件_files/analytics.js.下載" nonce=""></script><script type="text/javascript" async="" src="./API 開發說明文件_files/quant.js.下載" nonce=""></script><script async="" src="./API 開發說明文件_files/gtm.js.下載"></script><script nonce="">
+window.domain = 'hackmd.io'
+window.urlpath = ''
+window.debug = false
+window.version = '1.3.0'
+window.brand = 'HackMD'
+
+window.GOOGLE_API_KEY = 'AIzaSyCjSrqWHhmWJnoI7JlD88XDSaBgiKbaenA'
+window.GOOGLE_CLIENT_ID = '911617723593-drikdibvvn63slfd6kbqigo8ql1no55s.apps.googleusercontent.com'
+window.DROPBOX_APP_KEY = 'rdoizrlnkuha23r'
+
+
+window.ASSET_URL = 'https://assets.hackmd.io'
+
+window.USER_CAN_CREATE_TEAM = true
+window.PAYMENT_ENABLED = true
+window.FREE_TEAM_NUM = 3
+window.FREE_TEAM_MEMBER_NUM = 3
+window.FREE_PUBLIC_TEAM_NUM = 10
+
+window.EE_SITE_ENABLE = false
+window.EE_SITE_NAME = 'false'
+window.EE_SITE_LINK = 'false'
+
+window.ALLOW_ANONYMOUS = true
+window.PUBLIC_OVERVIEW = false
+window.INTERNAL_PUBLIC_OVERVIEW = false
+
+
+window.SHOW_HOT_NOTES = false
+
+
+
+window.HOT_NOTES_TIME_TYPE = 'week'
+
+
+
+window.SHOW_OVERVIEW = true
+
+
+window.USE_CDN = false
+
+
+window.MENTIONS = {}
+
+
+
+window.MENTION_ANCHORS = []
+
+
+
+window.COMMENT_ANCHORS = []
+
+
+
+window.IS_OWNER = false
+
+
+
+window.IS_TEAM_ADMIN = false
+
+
+
+
+
+window.USER_PROFILE = {"name":"Cheng-Chou Lai","userpath":"KHP5DAXOS--lK7JZIhrVQQ","photo":"https://avatars.githubusercontent.com/u/20788608?s=96","userid":"2873f90c-05ce-4bef-a52b-b259221ad541"}
+
+
+
+window.VERSION_TIME = '1590982181436'
+
+
+ 
+window.canEdit = false
+
+
+ 
+window.canWriteComment = false
+
+
+</script>
+
+
+    
+<!-- Google Tag Manager -->
+<script nonce="">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KLW9Z3');</script>
+<!-- End Google Tag Manager -->
+
+
+    <meta property="fb:app_id" content="1436904003272070">
+
+<meta name="twitter:image:src" content="https://lh5.googleusercontent.com/-m6c2--_pO6k/AAAAAAAAAAI/AAAAAAAAAGI/Z2WudEn6aMc/photo.jpg">
+
+<meta name="twitter:site" content="@hackmdio">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HackMD - Collaborative Markdown Knowledge Base">
+
+<meta name="twitter:description" content=" &lt;center&gt;【Gotcha! 我抓得住你 - AML 焦點人物辨識】   API 開發說明文件&lt;/center&gt; --- ## Introduction 各位玉山人工智慧公開挑戰賽的參賽者們，本">
+
+
+<meta property="og:image" content="https://lh5.googleusercontent.com/-m6c2--_pO6k/AAAAAAAAAAI/AAAAAAAAAGI/Z2WudEn6aMc/photo.jpg">
+
+<meta property="og:site_name" content="HackMD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HackMD - Collaborative Markdown Knowledge Base">
+
+<meta property="og:description" content=" &lt;center&gt;【Gotcha! 我抓得住你 - AML 焦點人物辨識】   API 開發說明文件&lt;/center&gt; --- ## Introduction 各位玉山人工智慧公開挑戰賽的參賽者們，本">
+
+
+	
+    <link rel="stylesheet" href="./API 開發說明文件_files/emojify.min.css">
+     <link href="./API 開發說明文件_files/font-vendor.b86e2bf451b246b1a88e.css" rel="stylesheet"><link href="./API 開發說明文件_files/common-vendor.b8ecfc406ac0b5f77a26.css" rel="stylesheet"><link href="./API 開發說明文件_files/pretty-vendor.83ac49e057c3eac4fce3.css" rel="stylesheet"><link href="./API 開發說明文件_files/pretty.218bea88e8b75935b0d7.css" rel="stylesheet">
+	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+<![endif]-->
+
+<style></style></head>
+
+<body style="" cz-shortcut-listen="true" class="">
+    <div class="ui-infobar container-fluid unselectable hidden-print comment-enabled">
+        <div class="row">
+            <div class="col-xs-12 ui-infobar-inner">
+                <div class="ui-infobar__user-info">
+                    <ul class="list-inline">
+                        <li>
+                            
+                                <span class="ui-lastchangeuser" data-profile="UcQg6jwlT_WL_ZNkPZMm6Q"> <a class="ui-user-icon small user-card-popover" style="background-image: url(https://lh5.googleusercontent.com/-m6c2--_pO6k/AAAAAAAAAAI/AAAAAAAAAGI/Z2WudEn6aMc/photo.jpg);" target="_blank" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q" data-toggle="popover" data-original-title="" title=""></a></span>
+                            
+                            &nbsp;<span class="text-uppercase ui-status-lastchange">變更於 24 天前</span>
+                            <span class="ui-lastchange text-uppercase" data-createtime="Tue May 12 2020 10:10:50 GMT+0000 (UTC)" data-updatetime="Mon Jun 01 2020 03:29:41 GMT+0000 (UTC)"></span>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
+
+                <div class="text-right ui-infobar__actions">
+                    <ul class="list-inline">
+                        
+                        <li>
+                            
+                                
+                                    <div class="ui-notification dropdown btn-group ">
+                                        <button id="notificationLabel" class="ui-notification-subscribe btn btn-default text-muted">
+                                            <div class="ui-notification-status" title="Notification">
+                                                <span class="normal">已訂閱</span>
+                                                <span class="hover">取消訂閱</span>
+                                            </div>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="notificationLabel">
+                                            <li class="ui-notification-watch notification-menu-item "><i class="fa fa-check fa-fw"></i><i class="fa fa-bell fa-fw"></i><div class="info"><div class="title">所有通知</div><div>當有任何變更時將會收到通知</div></div></li>
+                                            <li class="ui-notification-mention notification-menu-item "><i class="fa fa-check fa-fw"></i><i class="fa fa-at fa-fw"></i><div class="info"><div class="title">提及我</div><div>當有人提及我時才會收到通知</div></div></li>
+                                        </ul>
+                                        <button class="ui-watch ui-notification-subscribe btn btn-default">訂閱</button>
+                                        <button class="btn btn-default text-muted" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></button>
+                                    </div>
+                                
+                            
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        
+        <div class="ui-comment-app" id="hackmd-app" style="right: -45px; width: 45px;">
+            <div id="comment-app"><div class="open-comments"><div><button class="ui-open-comments btn btn-default"><i class="fa fa-commenting" aria-hidden="true"></i><span class="text">0 篇留言</span></button></div><div style="display: none;"><div class="comment-settings" id="comment-settings"><img src="./API 開發說明文件_files/comments-settings.svg" style="margin-right: 5px;"><div>留言設定</div></div></div></div><div class="comments-scroller"><div class="comments-containers"></div></div></div>
+        </div>
+        
+    </div>
+    <div id="doc" class="container-fluid markdown-body comment-enabled" data-hard-breaks="true"><h2 class="part" data-startline="1" data-endline="3" id="【Gotcha-我抓得住你---AML-焦點人物辨識】-API-開發說明文件" data-id="【Gotcha-我抓得住你---AML-焦點人物辨識】-API-開發說明文件"><a class="anchor hidden-xs" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E3%80%90Gotcha-%E6%88%91%E6%8A%93%E5%BE%97%E4%BD%8F%E4%BD%A0---AML-%E7%84%A6%E9%BB%9E%E4%BA%BA%E7%89%A9%E8%BE%A8%E8%AD%98%E3%80%91-API-%E9%96%8B%E7%99%BC%E8%AA%AA%E6%98%8E%E6%96%87%E4%BB%B6" title="【Gotcha-我抓得住你---AML-焦點人物辨識】-API-開發說明文件" smoothhashscroll=""><span class="octicon octicon-link"></span></a><center><span data-position="9" data-size="28">【Gotcha! 我抓得住你 - AML 焦點人物辨識】</span><br>
+<span data-position="40" data-size="10">API 開發說明文件</span></center></h2><h2 class="part" data-startline="4" data-endline="4" id="Introduction" data-id="Introduction"><a class="anchor hidden-xs" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#Introduction" title="Introduction" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="67" data-size="12">Introduction</span></h2><p class="part" data-startline="5" data-endline="6" data-position="80" data-size="0"><span data-position="80" data-size="79">各位玉山人工智慧公開挑戰賽的參賽者們，本次比賽將自行架設 server，並且使用 API 的方式來測試自己模型成效喔! 比起過往的比賽方式，這次變得更進階囉!</span><br>
+<span data-position="160" data-size="40">請不用擔心，跟著我們以下的操作步驟，讓我們一起展開一趟精實的資料科學旅程吧…</span><br></p><h2 class="part" data-startline="8" data-endline="8" id="Requirements" data-id="Requirements"><a class="anchor hidden-xs" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#Requirements" title="Requirements" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="209" data-size="12">Requirements</span></h2><p class="part" data-startline="9" data-endline="9" data-position="222" data-size="0"><span data-position="222" data-size="14">在開始之前，請您先做以下準備</span></p><div class="alert alert-info part" data-startline="10" data-endline="12" data-position="237" data-size="241">
+<ul>
+<li class="" data-startline="11" data-endline="11" data-position="247" data-size="0"><span data-position="247" data-size="2">在 </span><b><a href="https://tbrain.trendmicro.com.tw/Competitions/Details/11" target="_blank" rel="noopener"><span data-position="253" data-size="7">T-Brain</span></a></b><span data-position="323" data-size="6"> 上報名比賽</span></li>
+<li class="" data-startline="12" data-endline="12" data-position="332" data-size="0"><span data-position="332" data-size="6">留存隊長於 </span><b><a href="https://tbrain.trendmicro.com.tw/Competitions/Details/11" target="_blank" rel="noopener"><span data-position="342" data-size="7">T-Brain</span></a></b><span data-position="412" data-size="62"> 報名比賽時收到的手機驗證碼，此驗證碼將作為後續 API 使用之驗證資料 (弄丟也沒關係，後面會再教大家如何重新取得驗證碼)</span></li>
+</ul>
+</div><h2 class="part" data-startline="14" data-endline="14" id="架設-API-Server" data-id="架設-API-Server"><a class="anchor hidden-xs" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E6%9E%B6%E8%A8%AD-API-Server" title="架設-API-Server" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="482" data-size="13">架設 API Server</span></h2><p class="part" data-startline="15" data-endline="15" data-position="497" data-size="0"><span data-position="532" data-size="147">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目前市面上有許多提供免費試用的雲端運算平台，例如 : Google Cloud Platform、Microsoft Azure、Amazon Web Service 等等。以下我們以 Google Cloud Platform 為例做說明( 參賽者要使用其他平台也可以喔! )。</span></p><ul class="part" data-startline="17" data-endline="21">
+<li class="" data-startline="17" data-endline="18" data-position="683" data-size="0"><b><span data-position="686" data-size="7">Step 1.</span></b><span data-position="698" data-size="5"> 網路搜尋</span><a href="https://reurl.cc/E7GVg0" target="_blank" rel="noopener"><span data-position="703" data-size="21">Google Cloud Platform</span></a><span data-position="750" data-size="14">，會看到以下畫面（如圖1）。</span><br>
+<img src="./API 開發說明文件_files/hk5UG4n.png" alt="" class="" data-position="765" data-size="36"><center><span data-position="809" data-size="2">圖1</span></center></li>
+<li class="" data-startline="19" data-endline="21" data-position="823" data-size="0"><b><span data-position="826" data-size="7">Step 2.</span></b><span data-position="837" data-size="16"> 填寫註冊資料（如圖2和圖3）。</span><br>
+<img src="./API 開發說明文件_files/iD5PwMz.png" alt="" class="" data-position="854" data-size="36"><center><span data-position="898" data-size="2">圖2</span></center><br>
+<img src="./API 開發說明文件_files/zVnZhpe.png" alt="" class="" data-position="910" data-size="36"><center><span data-position="954" data-size="2">圖3</span></center></li>
+</ul><div class="alert alert-info part" data-startline="22" data-endline="23" data-position="966" data-size="94">
+<p data-position="974" data-size="0"><span data-position="974" data-size="82">Google Cloud Platform 會請您綁定信用卡，不過 Google 對於新帳號有提供免費試用額度 $300 美金，參賽者若於額度內使用便不會進行扣款。</span></p>
+</div><ul class="part" data-startline="25" data-endline="300">
+<li class="" data-startline="25" data-endline="27" data-position="1063" data-size="0">
+<p data-position="1061" data-size="0"><b><span data-position="1066" data-size="7">Step 3.</span></b><span data-position="1077" data-size="83"> 登入後，首先要先建立自己的 VM（如圖4），點擊選單，再點選 Compute Engine。接著會看到如圖5的畫面，請點選「VM執行個體」，再點選「建立執行個體」。</span><br>
+<img src="./API 開發說明文件_files/gxUko5U.png" alt="" class="" data-position="1161" data-size="36"></p><center><span data-position="1205" data-size="2">圖4</span></center><br>
+<img src="./API 開發說明文件_files/0EoVjZe.png" alt="" class="" data-position="1217" data-size="36"><center><span data-position="1261" data-size="2">圖5</span></center><p></p>
+</li>
+<li class="" data-startline="28" data-endline="36" data-position="1275" data-size="0">
+<p data-position="1273" data-size="0"><b><span data-position="1278" data-size="7">Step 4.</span></b><span data-position="1289" data-size="6"> 建立VM。</span><br>
+<span data-position="1296" data-size="38">可依照個人的需求來建立 VM。記得防火牆需允許 HTTP 要打勾，如下圖6。</span><br>
+<img src="./API 開發說明文件_files/tH55PCo.png" alt="" class="" data-position="1335" data-size="36"></p><center><span data-position="1379" data-size="2">圖6</span></center><p></p>
+<div class="alert alert-danger" data-position="1395" data-size="236">
+<ul>
+<li class="" data-startline="32" data-endline="35" data-position="1411" data-size="0"><b><span data-position="1414" data-size="5">省錢小撇步</span></b>
+<ol data-position="1432" data-size="0">
+<li class="" data-startline="33" data-endline="34" data-position="1435" data-size="0"><span data-position="1435" data-size="36">VM的機器類型請先設定為最基本的規格，不用一開始就開太大，不然會很花錢。</span>
+<ul>
+<li class="" data-startline="34" data-endline="34" data-position="1486" data-size="0"><span data-position="1486" data-size="18">未來可以再依照自己的模型來更改規格。</span></li>
+</ul>
+</li>
+<li class="" data-startline="35" data-endline="35" data-position="1516" data-size="0"><span data-position="1516" data-size="107">請留意不同雲平台的計價模式 ，但非常建議不使用VM的時候請都先關閉，但每次關閉重啟時，也要留意機器的外部 IP 是否變動，如果有變動，也請重新至 Slack 註冊 IP ，並執行後續 Step 5 設定靜態 IP。</span></li>
+</ol>
+</li>
+</ul>
+</div>
+</li>
+<li class="" data-startline="37" data-endline="45" data-position="1634" data-size="0">
+<p data-position="1632" data-size="0"><b><span data-position="1637" data-size="7">Step 5.</span></b><span data-position="1648" data-size="10"> 設定靜態外部IP。</span><br>
+<span data-position="1694" data-size="95">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VM 的外部 IP 預設為浮動 IP。為避免重啟 VM 時被隨機賦予新的外部 IP 位址，導致參賽者接收不到題目，所以跟著以下步驟，設定靜態 IP 來確保比賽過程中的品質吧 !</span><br>
+<span data-position="1825" data-size="141">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先，進入 VM 後，點選右上的「編輯」 (如圖7)，找到「網路介面設定」（如圖8），找到外部 IP 後（如圖9）並設定名稱（如圖10），新的名稱可以隨意命名。設定完成後將會看到如圖11畫面，紅框上的 IP: 35.202.143.146 會是VM的靜態外部 IP 。</span><br>
+<img src="./API 開發說明文件_files/8f8uC0v.png" alt="" class="" data-position="1967" data-size="36"></p><center><span data-position="2011" data-size="2">圖7</span></center><br>
+<img src="./API 開發說明文件_files/ICwcoYp.png" alt="" class="" data-position="2023" data-size="36"><center><span data-position="2067" data-size="2">圖8</span></center><br>
+<img src="./API 開發說明文件_files/6hO38oV.png" alt="" class="" data-position="2079" data-size="36"><center><span data-position="2123" data-size="2">圖9</span></center><br>
+<img src="./API 開發說明文件_files/rMwN9Pj.png" alt="" class="" data-position="2135" data-size="36"><center><span data-position="2179" data-size="3">圖10</span></center><br>
+<img src="./API 開發說明文件_files/cVvzF1e.png" alt="" class="" data-position="2192" data-size="36"><center><span data-position="2236" data-size="3">圖11</span></center><p></p>
+</li>
+<li class="" data-startline="46" data-endline="63" data-position="2252" data-size="0">
+<p data-position="2250" data-size="0"><b><span data-position="2255" data-size="7">Step 6.</span></b><span data-position="2266" data-size="16"> 產生金鑰並建立 SSH 連線。</span><br>
+<span data-position="2324" data-size="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打開 Terminal，輸入以下指令。</span></p>
+<pre><code class="shell hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">ssh-keygen
+</div></div></code></pre>
+<p data-position="2386" data-size="0"><span data-position="2425" data-size="32">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;產生金鑰時，終端機上會顯示下列問題，參賽者可以直接</span><font color="red"><b><span data-position="2476" data-size="9">連按 Enter </span></b></font><span data-position="2496" data-size="59">跳過直到出現以下畫面（如圖12），此圖表示金鑰產生完畢。如有設定密碼，記得連線時要輸入密碼才能連上 server 喔。</span><br>
+<img src="./API 開發說明文件_files/UxECYkC.png" alt="" class="" data-position="2558" data-size="36"></p><center><span data-position="2606" data-size="3">圖12</span></center><p></p>
+<div class="alert alert-info" data-position="2622" data-size="106">
+<p data-position="2630" data-size="0"><span data-position="2634" data-size="85">金鑰位置預設會產生在上圖的紅框裡，金鑰檔案名稱為 id_rsa.pub。在產生自己的 RSA SSH 金鑰前，可以先確認此檔案存在與否，若已經存在，則不一定要再次產生金鑰。</span></p>
+</div>
+<p data-position="2729" data-size="0"><span data-position="2768" data-size="116">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;點選剛剛建立好的 VM 並點選「編輯」，移動到 ssh 金鑰項目下，將 id_rsa.pub 裡的整串金鑰複製貼上（如圖13）。最後，在 Terminal 上使用如下指令，就可以從本機端連上自己建立的 server 囉！</span></p>
+<pre><code class="shell hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">ssh [external_IP_of_your_VM]
+</div></div></code></pre>
+<p data-position="2941" data-size="0"><img src="./API 開發說明文件_files/soFqSkb.png" alt="" class="" data-position="2945" data-size="36"></p><center><span data-position="2989" data-size="3">圖13</span></center><p></p>
+</li>
+<li class="" data-startline="64" data-endline="75" data-position="3006" data-size="0">
+<p data-position="3004" data-size="0"><b><span data-position="3009" data-size="7">Step 7.</span></b><span data-position="3020" data-size="6"> 環境設定。</span><br>
+<span data-position="3064" data-size="87">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Google Cloud Platform 的 VM 環境裡並沒有 Python，所以透過 ssh 連上 VM 後照著以下指令安裝 pip 和 Python3。</span></p>
+<pre><code class="shell hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">sudo apt update
+sudo apt-get install python3-pip #install python3 and pip
+</div></div></code></pre>
+<p data-position="3256" data-size="0"><span data-position="3295" data-size="33">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;順便安裝架設 API Server會使用到的套件吧。</span></p>
+<pre><code class="shell hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">sudo -H pip3 install flask
+sudo -H pip3 install numpy==1.15
+sudo -H pip3 install pandas
+</div></div></code></pre>
+</li>
+<li class="" data-startline="76" data-endline="79" data-position="3453" data-size="0">
+<p data-position="3451" data-size="0"><b><span data-position="3456" data-size="7">Step 8.</span></b><span data-position="3467" data-size="11"> 架設自己的 API。</span><br>
+<span data-position="3520" data-size="84">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;開始前，請先確定 VM 中已經安裝 flask 套件，flask 是 Python 套件中容易上手的 web 開發框架。（安裝方式請參考 Step 7）。</span><br>
+<span data-position="3646" data-size="68">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我們提供一支簡單易懂的 Python 範例程式，讓沒有寫過 API 的參賽者也可以輕鬆架設比賽專用的 API。範例程式檔（</span><code data-position="3707" data-size="6">api.py</code><span data-position="3722" data-size="86">）可以在 T-Brain 上下載，下一步驟會簡單說明這支程式碼。如果對架設 HTTP rest API Server 瞭若指掌的強者可以選擇自己架設，只要確保格式相符即可。</span></p>
+</li>
+<li class="" data-startline="80" data-endline="276" data-position="3812" data-size="0">
+<p data-position="3810" data-size="0"><b><span data-position="3815" data-size="7">Step 9.</span></b><span data-position="3826" data-size="7"> 程式碼介紹。</span><br>
+<span data-position="3875" data-size="22">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;介紹範例程式前，請參賽者先把 </span><code data-position="3894" data-size="6">api.py</code><span data-position="3905" data-size="17"> 放到 VM 上，可參考以下步驟：</span></p>
+<ul>
+<li class="" data-startline="82" data-endline="82" data-position="3927" data-size="0"><span data-position="3927" data-size="13">請先在 VM 上建好資料夾</span></li>
+</ul>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">mkdir [your_directory]
+<span class="hljs-comment"># 範例：mkdir esun_ai_competition</span>
+</div></div></code></pre>
+<ul>
+<li class="" data-startline="87" data-endline="87" data-position="4032" data-size="0"><span data-position="4032" data-size="19">查看於 VM 上建好的資料夾的絕對路徑</span></li>
+</ul>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">cd [your_directory]
+pwd <span class="hljs-comment"># 查看目前資料夾的絕對路徑</span>
+</div></div></code></pre>
+<ul>
+<li class="" data-startline="92" data-endline="92" data-position="4128" data-size="0"><font color="red"><b><span data-position="4147" data-size="4">在本機端</span></b></font><span data-position="4162" data-size="60">，可以透過以下指令連線到VM的外部IP，並將本機端的程式碼複製到 VM 的絕對路徑下（請先確保 VM 上已建好資料夾）。</span></li>
+</ul>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">scp [path_to_your_local_file]  [external_IP_of_your_VM]:/[path_to_your_directory] 
+<span class="hljs-comment"># 範例：假設VM external IP是 35.202.143.146 (step 5 設定的固定 IP)</span>
+<span class="hljs-comment"># scp ./api.py 35.202.143.146:./esun_ai_competition/</span>
+</div></div></code></pre>
+<ul>
+<li class="" data-startline="98" data-endline="98" data-position="4456" data-size="0"><span data-position="4456" data-size="13">使用 vim 指令，打開 </span><code data-position="4470" data-size="6">api.py</code></li>
+</ul>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">vim api.py
+</div></div></code></pre>
+<p data-position="4516" data-size="0"><span data-position="4540" data-size="13">&nbsp;&nbsp;&nbsp;&nbsp;會看到以下程式碼。</span></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span>
+<span data-linenumber="16"></span>
+<span data-linenumber="17"></span>
+<span data-linenumber="18"></span>
+<span data-linenumber="19"></span>
+<span data-linenumber="20"></span>
+<span data-linenumber="21"></span>
+<span data-linenumber="22"></span>
+<span data-linenumber="23"></span>
+<span data-linenumber="24"></span>
+<span data-linenumber="25"></span>
+<span data-linenumber="26"></span>
+<span data-linenumber="27"></span>
+<span data-linenumber="28"></span>
+<span data-linenumber="29"></span>
+<span data-linenumber="30"></span>
+<span data-linenumber="31"></span>
+<span data-linenumber="32"></span>
+<span data-linenumber="33"></span>
+<span data-linenumber="34"></span>
+<span data-linenumber="35"></span>
+<span data-linenumber="36"></span>
+<span data-linenumber="37"></span>
+<span data-linenumber="38"></span>
+<span data-linenumber="39"></span>
+<span data-linenumber="40"></span>
+<span data-linenumber="41"></span>
+<span data-linenumber="42"></span>
+<span data-linenumber="43"></span>
+<span data-linenumber="44"></span>
+<span data-linenumber="45"></span>
+<span data-linenumber="46"></span>
+<span data-linenumber="47"></span>
+<span data-linenumber="48"></span>
+<span data-linenumber="49"></span>
+<span data-linenumber="50"></span>
+<span data-linenumber="51"></span>
+<span data-linenumber="52"></span>
+<span data-linenumber="53"></span>
+<span data-linenumber="54"></span>
+<span data-linenumber="55"></span>
+<span data-linenumber="56"></span>
+<span data-linenumber="57"></span>
+<span data-linenumber="58"></span>
+<span data-linenumber="59"></span>
+<span data-linenumber="60"></span>
+<span data-linenumber="61"></span>
+<span data-linenumber="62"></span>
+<span data-linenumber="63"></span>
+<span data-linenumber="64"></span>
+<span data-linenumber="65"></span>
+<span data-linenumber="66"></span>
+<span data-linenumber="67"></span>
+<span data-linenumber="68"></span>
+<span data-linenumber="69"></span>
+<span data-linenumber="70"></span>
+<span data-linenumber="71"></span>
+<span data-linenumber="72"></span>
+<span data-linenumber="73"></span>
+<span data-linenumber="74"></span>
+<span data-linenumber="75"></span>
+<span data-linenumber="76"></span>
+<span data-linenumber="77"></span>
+<span data-linenumber="78"></span>
+<span data-linenumber="79"></span>
+<span data-linenumber="80"></span>
+<span data-linenumber="81"></span>
+<span data-linenumber="82"></span>
+<span data-linenumber="83"></span>
+<span data-linenumber="84"></span>
+<span data-linenumber="85"></span></div><div class="code"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask
+<span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> request
+<span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> jsonify
+<span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">import</span> hashlib
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+
+app = Flask(__name__)
+<span class="hljs-comment">####### PUT YOUR INFORMATION HERE #######</span>
+CAPTAIN_EMAIL = <span class="hljs-string">'my@gmail.com'</span>          <span class="hljs-comment">#</span>
+SALT = <span class="hljs-string">'my_salt'</span>                        <span class="hljs-comment">#</span>
+<span class="hljs-comment">#########################################</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">generate_server_uuid</span><span class="hljs-params">(input_string)</span>:</span>
+    <span class="hljs-string">""" Create your own server_uuid
+    @param input_string (str): information to be encoded as server_uuid
+    @returns server_uuid (str): your unique server_uuid
+    """</span>
+    s = hashlib.sha256()
+    data = (input_string+SALT).encode(<span class="hljs-string">"utf-8"</span>)
+    s.update(data)
+    server_uuid = s.hexdigest()
+    <span class="hljs-keyword">return</span> server_uuid
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">predict</span><span class="hljs-params">(article)</span>:</span>
+    <span class="hljs-string">""" Predict your model result
+    @param article (str): a news article
+    @returns prediction (list): a list of name
+    """</span>
+
+    <span class="hljs-comment">####### PUT YOUR MODEL INFERENCING CODE HERE #######</span>
+    prediction = [<span class="hljs-string">'aha'</span>,<span class="hljs-string">'danny'</span>,<span class="hljs-string">'jack'</span>]
+
+
+    <span class="hljs-comment">####################################################</span>
+    prediction = _check_datatype_to_list(prediction)
+    <span class="hljs-keyword">return</span> prediction
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_check_datatype_to_list</span><span class="hljs-params">(prediction)</span>:</span>
+    <span class="hljs-string">""" Check if your prediction is in list type or not. 
+        And then convert your prediction to list type or raise error.
+
+    @param prediction (list / numpy array / pandas DataFrame): your prediction
+    @returns prediction (list): your prediction in list type
+    """</span>
+    <span class="hljs-keyword">if</span> isinstance(prediction, np.ndarray):
+        _check_datatype_to_list(prediction.tolist())
+    <span class="hljs-keyword">elif</span> isinstance(prediction, pd.core.frame.DataFrame):
+        _check_datatype_to_list(prediction.values)
+    <span class="hljs-keyword">elif</span> isinstance(prediction, list):
+        <span class="hljs-keyword">return</span> prediction
+    <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">'Prediction is not in list type.'</span>)
+
+<span class="hljs-meta">@app.route('/healthcheck', methods=['POST'])</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">healthcheck</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">""" API for health check """</span>
+    data = request.get_json(force=<span class="hljs-keyword">True</span>)  
+    t = int(time.time())
+    ts = str(t)
+    server_uuid = generate_server_uuid(CAPTAIN_EMAIL+ts)
+    server_timestamp = t
+    <span class="hljs-keyword">return</span> jsonify({<span class="hljs-string">'esun_uuid'</span>: data[<span class="hljs-string">'esun_uuid'</span>], <span class="hljs-string">'server_uuid'</span>: server_uuid, <span class="hljs-string">'captain_email'</span>: CAPTAIN_EMAIL, <span class="hljs-string">'server_timestamp'</span>: server_timestamp})
+
+<span class="hljs-meta">@app.route('/inference', methods=['POST'])</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inference</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">""" API that return your model predictions when E.SUN calls this API """</span>
+    data = request.get_json(force=<span class="hljs-keyword">True</span>)  
+    esun_timestamp = data[<span class="hljs-string">'esun_timestamp'</span>] <span class="hljs-comment">#自行取用</span>
+
+    t = int(time.time())
+    ts = str(int(t))
+    server_uuid = generate_server_uuid(CAPTAIN_EMAIL+ts)
+
+    <span class="hljs-keyword">try</span>:
+        answer = predict(data[<span class="hljs-string">'news'</span>])
+    <span class="hljs-keyword">except</span>:
+        <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">'Model error.'</span>)        
+    server_timestamp = t
+
+    <span class="hljs-keyword">return</span> jsonify({<span class="hljs-string">'esun_timestamp'</span>: data[<span class="hljs-string">'esun_timestamp'</span>], <span class="hljs-string">'server_uuid'</span>: server_uuid, <span class="hljs-string">'answer'</span>: answer, <span class="hljs-string">'server_timestamp'</span>: server_timestamp, <span class="hljs-string">'esun_uuid'</span>: data[<span class="hljs-string">'esun_uuid'</span>]})
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:    
+    app.run(host=<span class="hljs-string">'0.0.0.0'</span>, port=<span class="hljs-number">8080</span>, debug=<span class="hljs-keyword">True</span>)
+
+</div></div></code></pre>
+<ul>
+<li class="" data-startline="190" data-endline="276" data-position="7733" data-size="0"><span data-position="7733" data-size="17">根據上述程式碼，有以下幾點需注意：</span>
+<ol data-position="7759" data-size="0">
+<li class="" data-startline="191" data-endline="191" data-position="7762" data-size="0">
+<p data-position="7751" data-size="0"><span data-position="7762" data-size="23">請在第 11 行輸入該隊隊長的 e-mail。</span></p>
+</li>
+<li class="" data-startline="192" data-endline="192" data-position="7797" data-size="0">
+<p data-position="7786" data-size="0"><span data-position="7797" data-size="38">請在第 12 行的 SALT 輸入任意字元，以增加 uuid 加密的複雜度。</span></p>
+</li>
+<li class="" data-startline="193" data-endline="197" data-position="7847" data-size="0">
+<p data-position="7836" data-size="0"><span data-position="7847" data-size="14">需實現 API &nbsp;規格如下：</span></p>
+<table>
+<thead>
+<tr>
+<th><span data-position="7876" data-size="7">Methods</span></th>
+<th><span data-position="7888" data-size="4">Info</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span data-position="7945" data-size="11">healthcheck</span></td>
+<td><span data-position="7963" data-size="6">[POST]</span><br><span data-position="7973" data-size="19"> 確認參賽者的 API 服務是否正常。</span></td>
+</tr>
+<tr>
+<td><span data-position="8009" data-size="9">inference</span></td>
+<td><span data-position="8024" data-size="6">[POST]</span><br><span data-position="8034" data-size="20"> 玉山提供題目，參賽者回傳模型運算結果。</span></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="" data-startline="198" data-endline="227" data-position="8067" data-size="0">
+<p data-position="8056" data-size="0"><span data-position="8067" data-size="21">healthcheck 資料傳輸格式說明:</span><br>
+<span data-position="8102" data-size="7">資料格式皆以 </span><b><span data-position="8112" data-size="4">json</span></b><span data-position="8120" data-size="6"> 格式傳送。</span><br>
+<b><span data-position="8143" data-size="7">Request</span></b></p>
+<pre><code class="jsonld hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span></div><div class="code">POST /<span class="hljs-keyword">healthcheck</span><span class="bash">
+{ 
+</span>    <span class="hljs-string">"esun_uuid"</span>:<span class="hljs-string">"AZE3k4jb456mdX03fvsd=="</span>,
+    <span class="hljs-string">"esun_timestamp"</span>:<span class="hljs-number">1590493614</span>,
+    <span class="hljs-string">"retry"</span>:<span class="hljs-number">2</span>
+}
+</div></div></code></pre>
+<p data-position="8376" data-size="0"><b><span data-position="8391" data-size="8">Response</span></b></p>
+<pre><code class="jsonld hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span></div><div class="code">{ 
+    <span class="hljs-string">"esun_uuid"</span>:<span class="hljs-string">"AZE3k4jb456mdX03fvsd=="</span>,
+    <span class="hljs-string">"server_uuid"</span>:<span class="hljs-string">"Rs9$revm32ofjwfs2kgrep=="</span>,
+    <span class="hljs-string">"captain_email"</span>:<span class="hljs-string">"my@gmail.com"</span>,
+    <span class="hljs-string">"server_timestamp"</span>:<span class="hljs-number">1590493615</span>,
+}
+</div></div></code></pre>
+<p data-position="8680" data-size="0"><span data-position="8692" data-size="9">回傳資料欄位說明:</span></p>
+<table>
+<thead>
+<tr>
+<th><span data-position="8730" data-size="2">參數</span></th>
+<th><span data-position="8735" data-size="2">型態</span></th>
+<th><span data-position="8740" data-size="2">說明</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span data-position="8806" data-size="8">esun_uuid</span></td>
+<td><span data-position="8821" data-size="6">string</span></td>
+<td><span data-position="8834" data-size="24">玉山 client 傳給開發者的 task id</span></td>
+</tr>
+<tr>
+<td><span data-position="8880" data-size="10">server_uuid</span></td>
+<td><span data-position="8897" data-size="6">string</span></td>
+<td><span data-position="8910" data-size="61">由開發者自行產生的 uuid，接下來 call inference API 時，會利用此 server_uuid 作為識別。</span></td>
+</tr>
+<tr>
+<td><span data-position="8993" data-size="12">captain_email</span></td>
+<td><span data-position="9012" data-size="6">string</span></td>
+<td><span data-position="9025" data-size="8">隊長 email</span></td>
+</tr>
+<tr>
+<td><span data-position="9054" data-size="15">server_timestamp</span></td>
+<td><span data-position="9076" data-size="3">int</span></td>
+<td><span data-position="9086" data-size="70">healthcheck API 回傳訊息的時間 (Unix Epoch Time，從 1970-01-01T00:00:00 起算的秒數 )</span></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="" data-startline="228" data-endline="259" data-position="9173" data-size="0">
+<p data-position="9162" data-size="0"><span data-position="9173" data-size="19">inference 資料傳輸格式說明:</span><br>
+<span data-position="9206" data-size="7">資料格式皆以 </span><b><span data-position="9216" data-size="4">json</span></b><span data-position="9224" data-size="6"> 格式傳送。</span><br>
+<b><span data-position="9247" data-size="7">Request</span></b></p>
+<pre><code class="jsonld hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span></div><div class="code">POST /inference
+{ 
+    <span class="hljs-string">"esun_uuid"</span>:<span class="hljs-string">"AZE3k4jb456mdX03fvsd=="</span>, 
+    <span class="hljs-string">"server_uuid"</span>:<span class="hljs-string">"Rs9<span class="hljs-variable">$revm32ofjwfs2kgrep</span>=="</span>,
+    <span class="hljs-string">"esun_timestamp"</span>:1590493849,
+    <span class="hljs-string">"news"</span>:<span class="hljs-string">"人工智慧公開挑戰賽題目..."</span>,
+    <span class="hljs-string">"retry"</span>:2
+}
+</div></div></code></pre>
+<p data-position="9578" data-size="0"><b><span data-position="9593" data-size="8">Response</span></b></p>
+<pre><code class="jsonld hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span></div><div class="code">{ 
+    <span class="hljs-string">"esun_uuid"</span>:<span class="hljs-string">"AZE3k4jb456mdX03fvsd=="</span>,
+    <span class="hljs-string">"server_uuid"</span>:<span class="hljs-string">"Rs9$revm32ofsdfs2kgrsd=="</span>,
+    <span class="hljs-string">"server_timestamp"</span>:<span class="hljs-number">1590493852</span>,
+    <span class="hljs-string">"answer"</span>:[<span class="hljs-string">"Danny"</span>,<span class="hljs-string">"Jack"</span>]
+}
+</div></div></code></pre>
+<p data-position="9876" data-size="0"><span data-position="9888" data-size="9">回傳資料欄位說明:</span></p>
+<table>
+<thead>
+<tr>
+<th><span data-position="9925" data-size="2">參數</span></th>
+<th><span data-position="9930" data-size="2">型態</span></th>
+<th><span data-position="9935" data-size="2">說明</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span data-position="10001" data-size="8">esun_uuid</span></td>
+<td><span data-position="10016" data-size="6">string</span></td>
+<td><span data-position="10029" data-size="24">玉山 client 傳給開發者的 task id</span></td>
+</tr>
+<tr>
+<td><span data-position="10075" data-size="10">server_uuid</span></td>
+<td><span data-position="10092" data-size="6">string</span></td>
+<td><span data-position="10105" data-size="15">由開發者自行產生的 uuid。</span></td>
+</tr>
+<tr>
+<td><span data-position="10141" data-size="6">answer</span></td>
+<td><font color="red"><b><span data-position="10171" data-size="4">list</span></b></font></td>
+<td><span data-position="10193" data-size="42">找出來的黑名單 string list，如果結果為空，請回傳空的 list，例:[]</span></td>
+</tr>
+<tr>
+<td><span data-position="10255" data-size="15">server_timestamp</span></td>
+<td><span data-position="10277" data-size="3">int</span></td>
+<td><span data-position="10287" data-size="66">inference API 回傳的時間 (Unix Epoch Time，從 1970-01-01T00:00:00 起算的秒數 )</span></td>
+</tr>
+</tbody>
+</table>
+<p data-position="10369" data-size="0"><span data-position="10381" data-size="38">預測出來的黑名單一定要存成 list 格式，不然提交答案時會出錯失去分數喔。</span></p>
+</li>
+<li class="" data-startline="260" data-endline="276" data-position="10431" data-size="0">
+<p data-position="10420" data-size="0"><span data-position="10431" data-size="5">時間限制：</span></p>
+<ul>
+<li class="" data-startline="261" data-endline="264" data-position="10451" data-size="0"><span data-position="10451" data-size="12">healthcheck:</span>
+<ul>
+<li class="" data-startline="262" data-endline="262" data-position="10482" data-size="0"><span data-position="10482" data-size="13">timeout: 1 秒。</span></li>
+<li class="" data-startline="263" data-endline="264" data-position="10514" data-size="0"><span data-position="10514" data-size="13">retry 次數: 2次。</span><br>
+<br></li>
+</ul>
+</li>
+</ul>
+<div class="alert alert-danger" data-position="10557" data-size="230">
+<p data-position="10568" data-size="0"><b><span data-position="10583" data-size="2">注意</span></b><br>
+<span data-position="10638" data-size="134">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在 healthcheck 的階段，參賽者的 API 需要在 timeout 的秒數內回傳資訊，若第一次未成功回傳，玉山 server 會再呼叫 2 次。如果參賽者的 API 仍未於規定秒數內回應，將視為放棄該題，玉山 server 也不會發送該輪題目。</span></p>
+</div>
+<ul>
+<li class="" data-startline="269" data-endline="272" data-position="10802" data-size="0"><span data-position="10802" data-size="10">inference:</span>
+<ul>
+<li class="" data-startline="270" data-endline="270" data-position="10831" data-size="0"><span data-position="10831" data-size="13">timeout: 5 秒。</span></li>
+<li class="" data-startline="271" data-endline="272" data-position="10863" data-size="0"><span data-position="10863" data-size="13">retry 次數: 2次。</span><br>
+<br></li>
+</ul>
+</li>
+</ul>
+<div class="alert alert-danger" data-position="10906" data-size="209">
+<p data-position="10917" data-size="0"><b><span data-position="10932" data-size="2">注意</span></b><br>
+<span data-position="10987" data-size="113">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在 inference 的階段，玉山 server 每輪發送一題題目後，參賽者會有 5 秒的時間回覆答案。超過 5 秒後，玉山 server 會重試 2 次，若仍沒有收到參賽者該輪答案，將視為參賽者放棄此輪作答。</span></p>
+</div>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li class="" data-startline="277" data-endline="288" data-position="11118" data-size="0">
+<p data-position="11116" data-size="0"><b><span data-position="11121" data-size="8">Step 10.</span></b><span data-position="11133" data-size="9"> 防火牆規則設定。</span><br>
+<span data-position="11149" data-size="73">Google Cloud Platform 預設 port 為 80，請各位參賽者跟著以下步驟開通一個 1024 以上的 port number。</span></p>
+<ol data-position="11225" data-size="0">
+<li class="" data-startline="279" data-endline="280" data-position="11228" data-size="0"><span data-position="11228" data-size="30">如圖 14，點選選單，並且找到 VPC 網路中的防火牆規則。</span><br>
+<img src="./API 開發說明文件_files/qxIeIWP.png" alt="" class="" data-position="11260" data-size="36"><center><span data-position="11312" data-size="4">圖 14</span></center></li>
+<li class="" data-startline="281" data-endline="282" data-position="11332" data-size="0"><span data-position="11332" data-size="16">如圖 15，點選建立防火牆規則。</span><br>
+<img src="./API 開發說明文件_files/kedR5b7.png" alt="" class="" data-position="11350" data-size="36"><center><span data-position="11402" data-size="4">圖 15</span></center></li>
+<li class="" data-startline="283" data-endline="288" data-position="11422" data-size="0"><span data-position="11422" data-size="46">如圖 16，設定目標標記、來源 IP 範圍和通訊埠設為 8080，最後點選儲存，就設定好啦！</span><br>
+<img src="./API 開發說明文件_files/D5PbB1F.png" alt="" class="" data-position="11470" data-size="36"><center><span data-position="11522" data-size="4">圖 16</span></center></li>
+</ol>
+</li>
+<li class="" data-startline="289" data-endline="298" data-position="11549" data-size="0">
+<p data-position="11547" data-size="0"><b><span data-position="11552" data-size="8">Step 11.</span></b><span data-position="11564" data-size="11"> 啟動 API 服務。</span><br>
+<span data-position="11617" data-size="41">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;輸入以下指令，並且看到圖 17 畫面就表示成功啟動 API 服務囉!</span></p>
+<pre><code class="shell hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">python3 api.py
+</div></div></code></pre>
+<p data-position="11698" data-size="0"><img src="./API 開發說明文件_files/IGV7ODT.png" alt="" class="" data-position="11702" data-size="36"></p><center><span data-position="11746" data-size="3">圖17</span></center><p></p>
+<div class="alert alert-info" data-position="11763" data-size="100">
+<p data-position="11771" data-size="0"><strong data-position="11775" data-size="0"><span data-position="11777" data-size="4">Tips</span></strong><span data-position="11783" data-size="72">：完成此處啟動 API 服務後，便可以順利執行下一章節的 API 驗證，建議您可以先完成下一步的註冊與驗證流程，後續再將模型內容置換成您的模型。</span></p>
+</div>
+</li>
+<li class="" data-startline="299" data-endline="300" data-position="11867" data-size="0">
+<p data-position="11865" data-size="0"><span data-position="11868" data-size="22">想了解更多 flask 的相關應用可以點選此</span><a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank" rel="noopener"><span data-position="11890" data-size="2">連結</span></a><span data-position="11938" data-size="1">。</span></p>
+</li>
+</ul><h2 class="part" data-startline="301" data-endline="301" id="於-Slack-Workspace-註冊正式賽" data-id="於-Slack-Workspace-註冊正式賽"><a class="anchor hidden-xs" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E6%96%BC-Slack-Workspace-%E8%A8%BB%E5%86%8A%E6%AD%A3%E5%BC%8F%E8%B3%BD" title="於-Slack-Workspace-註冊正式賽" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="11944" data-size="23">於 Slack Workspace 註冊正式賽</span></h2><ul class="part" data-startline="302" data-endline="362">
+<li class="" data-startline="302" data-endline="311" data-position="11970" data-size="0">
+<p data-position="11968" data-size="0"><b><span data-position="11973" data-size="6">Step 1</span></b><span data-position="11984" data-size="2">：點</span><a href="https://esunaiopencompetition.slack.com/join/shared_invite/zt-ed3evsfq-o3IUFB80duxGjshACB~t_A#/" target="_blank" rel="noopener"><span data-position="11986" data-size="3">此連結</span></a><span data-position="12087" data-size="29">加入玉山人工智慧公開挑戰賽 Slack workspace</span></p>
+<ul>
+<li class="" data-startline="303" data-endline="306" data-position="12123" data-size="0">
+<p data-position="12117" data-size="0"><span data-position="12123" data-size="29">請您輸入加入此 workspace 欲使用的 email。</span><br>
+<img src="./API 開發說明文件_files/T2sDY1o.png" alt="" class="" data-position="12153" data-size="36"></p>
+</li>
+<li class="" data-startline="307" data-endline="308" data-position="12202" data-size="0">
+<p data-position="12196" data-size="0"><span data-position="12202" data-size="25">設定於此 workspace 中顯示的名字與密碼。</span><br>
+<img src="./API 開發說明文件_files/x1vOdRc.png" alt="" class="" data-position="12228" data-size="36"></p>
+</li>
+</ul>
+<div class="alert alert-danger" data-position="12273" data-size="61">
+<p data-position="12283" data-size="0"><b><span data-position="12290" data-size="2">注意</span></b><span data-position="12296" data-size="29"> : 以下步驟所使用到的 esun_bot 會在7/1開放。</span></p>
+</div>
+</li>
+<li class="" data-startline="312" data-endline="314" data-position="12337" data-size="0">
+<p data-position="12335" data-size="0"><b><span data-position="12340" data-size="6">Step 2</span></b><span data-position="12350" data-size="74">：檢查是否有 esun_bot 在 Apps 裡，若沒有請依照下圖點選 Apps 旁邊的+號，再點選右邊的 E.SUN Bot 匯入至您的 Apps。</span><br>
+<img src="./API 開發說明文件_files/3d5UG4C.png" alt="" class="" data-position="12428" data-size="36"></p>
+</li>
+<li class="" data-startline="315" data-endline="334" data-position="12470" data-size="0">
+<p data-position="12468" data-size="0"><b><span data-position="12473" data-size="6">Step 3</span></b><span data-position="12483" data-size="20">：與E.SUN Bot 對話註冊正式賽。</span></p>
+<ul>
+<li class="" data-startline="316" data-endline="318" data-position="12510" data-size="0"><span data-position="12510" data-size="32">在側邊欄最下方 Apps 的地方找到 esun_bot 開啟對話。</span><br>
+<img src="./API 開發說明文件_files/ZSIWh2s.png" alt="" class="" data-position="12544" data-size="36"><br>
+<br></li>
+<li class="" data-startline="319" data-endline="319" data-position="12600" data-size="0"><span data-position="12600" data-size="101">（Optional）若隊長忘記於 T-Brain 註冊時收到的手機驗證碼（若還留存請跳至下一步），可於對話框輸入以下指令，需注意 forget_token 與 captain_email 之間是以空格分隔。</span></li>
+</ul>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">forget_token [captain_email] 
+<span class="hljs-comment"># [captain_email] 請置換成隊長 email</span>
+</div></div></code></pre>
+<ul>
+<li class="" data-startline="324" data-endline="324" data-position="12802" data-size="0"><span data-position="12802" data-size="75">於對話框中輸入以下註冊指令，需注意， register 、 captain_email 、 phone_token_of_captain 之間均是以空格分隔。</span></li>
+</ul>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">register [captain_email] [phone_token_of_captain]
+<span class="hljs-comment"># [captain_email] 請置換成隊長 email</span>
+<span class="hljs-comment"># [phone_token_of_captain] 請置換成隊長手機驗證碼</span>
+</div></div></code></pre>
+<ul>
+<li class="" data-startline="330" data-endline="334" data-position="13043" data-size="0"><span data-position="13043" data-size="10">註冊成功會看到如下圖</span><br>
+<img src="./API 開發說明文件_files/e1XhMLW.png" alt="" class="" data-position="13054" data-size="36"></li>
+</ul>
+</li>
+<li class="" data-startline="335" data-endline="350" data-position="13100" data-size="0">
+<p data-position="13098" data-size="0"><b><span data-position="13103" data-size="6">Step 4</span></b><span data-position="13113" data-size="67">：請先確保您已完成架設 API 章節並啟動您的 API 服務，接下來就可以在 Slack 測試 API 是否能順利獲得題目與回傳答案。</span></p>
+<ul>
+<li class="" data-startline="336" data-endline="336" data-position="13187" data-size="0"><span data-position="13187" data-size="87">於對話框中輸入以下驗證指令，需注意， verification 、captain_email 、 phone_token_of_captain 、 api_url 之間均是以空格分隔。</span></li>
+</ul>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code">verification [captain_email] [phone_token_of_captain] http://[external_IP_of_your_VM]:[port_of_your_API]
+<span class="hljs-comment"># [captain_email] 請置換成隊長 email</span>
+<span class="hljs-comment"># [phone_token_of_captain] 請置換成隊長手機驗證碼</span>
+<span class="hljs-comment"># [external_IP_of_your_VM] 請置換成您 VM 的外部 IP</span>
+<span class="hljs-comment"># [port_of_your_API] 請置換成您 API 的 port，範例 code 為 8080 </span>
+</div></div></code></pre>
+<div class="alert alert-danger" data-position="13599" data-size="206">
+<ol data-position="13613" data-size="0">
+<li class="" data-startline="345" data-endline="345" data-position="13616" data-size="0"><span data-position="13616" data-size="67">需注意，最後一次驗證的 API 將成為該隊伍正式賽時玉山發送題目的 API，故每個隊伍都必須完成驗證，否則會影響到您參與正式賽的權益。</span></li>
+<li class="" data-startline="346" data-endline="346" data-position="13691" data-size="0"><span data-position="13691" data-size="106">在比賽結束前，您可以隨時運用 verification 指令來驗證您調整後 API 的輸出入格式是否正確，但需注意，您在每場正式賽開始前，最後一次驗證的 API url 會自動被視為正式賽呼叫之 API url。</span></li>
+</ol>
+</div>
+<ul>
+<li class="" data-startline="348" data-endline="350" data-position="13812" data-size="0"><span data-position="13812" data-size="60">如下圖，驗證時 esun_bot 會發送一題正式比賽題目至參賽者的API，同時確認 API 位址和回傳的答案格式是否正確。</span><br>
+<img src="./API 開發說明文件_files/r13SQHE.png" alt="" class="" data-position="13874" data-size="36"></li>
+</ul>
+</li>
+<li class="" data-startline="351" data-endline="362" data-position="13918" data-size="0">
+<p data-position="13916" data-size="0"><b><span data-position="13921" data-size="6">Step 5</span></b><span data-position="13931" data-size="59">：取得最後一次驗證狀態是否成功以及驗證的 API url 為何，了解調整後的 API 是否仍可正確接收題目與回傳答案。</span></p>
+<ul>
+<li class="" data-startline="352" data-endline="352" data-position="13997" data-size="0"><span data-position="13997" data-size="74">於對話框中輸入以下指令，需注意， get_status 、captain_email 、 phone_token_of_captain  之間均是以空格分隔。</span></li>
+</ul>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">get_status [captain_email] [phone_token_of_captain]
+<span class="hljs-comment"># [captain_email] 請置換成隊長 email</span>
+<span class="hljs-comment"># [phone_token_of_captain] 請置換成隊長手機驗證碼</span>
+</div></div></code></pre>
+<ul>
+<li class="" data-startline="358" data-endline="359" data-position="14240" data-size="0"><span data-position="14240" data-size="13">若驗證失敗會看到以下圖示，</span><font color="red"><b><span data-position="14274" data-size="20">請修正錯誤並確認驗證成功再進行正式比賽。</span></b></font><br>
+<img src="./API 開發說明文件_files/8Dlzgqg.png" alt="" class="" data-position="14306" data-size="36"></li>
+<li class="" data-startline="360" data-endline="362" data-position="14353" data-size="0"><span data-position="14353" data-size="13">若驗證成功會看到如下畫面。</span><br>
+<img src="./API 開發說明文件_files/B5NMxi7.png" alt="" class="" data-position="14367" data-size="36"></li>
+</ul>
+</li>
+</ul><h2 class="part" data-startline="363" data-endline="363" id="開始訓練自己的模型吧！" data-id="開始訓練自己的模型吧！"><a class="anchor hidden-xs" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E9%96%8B%E5%A7%8B%E8%A8%93%E7%B7%B4%E8%87%AA%E5%B7%B1%E7%9A%84%E6%A8%A1%E5%9E%8B%E5%90%A7%EF%BC%81" title="開始訓練自己的模型吧！" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="14412" data-size="11">開始訓練自己的模型吧！</span></h2><p class="part" data-startline="364" data-endline="364" data-position="14424" data-size="0"><span data-position="14424" data-size="46">完成以上流程，便可以開始訓練您的模型，並將範例 code 中的模型區塊置換成您訓練好的模型。</span></p><h2 class="part" data-startline="366" data-endline="366" id="測試賽與正式賽" data-id="測試賽與正式賽"><a class="anchor hidden-xs" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E6%B8%AC%E8%A9%A6%E8%B3%BD%E8%88%87%E6%AD%A3%E5%BC%8F%E8%B3%BD" title="測試賽與正式賽" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="14475" data-size="7">測試賽與正式賽</span></h2><ul class="part" data-startline="367" data-endline="379">
+<li class="" data-startline="367" data-endline="379" data-position="14485" data-size="0"><span data-position="14485" data-size="21">若我想查詢 API log 我可以怎麼做？</span>
+<ul>
+<li class="" data-startline="368" data-endline="368" data-position="14513" data-size="0"><span data-position="14513" data-size="117">（此功能將於 7/22 測試賽後開放） 於 Slack esun_bot 對話框輸入以下指令，需注意，get_log 、captain_email 、 phone_token_of_captain 、 date_for_query 之間均是以空格分隔</span></li>
+</ul>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">get_log [captain_email] [phone_token_of_captain] [date_for_query]
+<span class="hljs-comment"># [captain_email] 請置換成隊長 email</span>
+<span class="hljs-comment"># [phone_token_of_captain] 請置換成隊長手機驗證碼</span>
+</div></div></code></pre>
+<div class="alert alert-info" data-position="14814" data-size="107">
+<ol data-position="14826" data-size="0">
+<li class="" data-startline="375" data-endline="375" data-position="14829" data-size="0"><span data-position="14829" data-size="30">[date_for_query] 的格式為 YYYY-MM-DD</span></li>
+<li class="" data-startline="376" data-endline="376" data-position="14869" data-size="0"><span data-position="14869" data-size="42">若您無指定日期（無輸入 date_for_query)，則預設回傳給您查詢當天的答題狀況</span></li>
+</ol>
+</div>
+</li>
+</ul><h2 class="part" data-startline="380" data-endline="380" id="常見-QampA" data-id="常見-QampA"><a class="anchor hidden-xs" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E5%B8%B8%E8%A6%8B-QampA" title="常見-QampA" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="14927" data-size="6">常見 Q&amp;A</span></h2><ol class="part" data-startline="381" data-endline="424" data-position="14934" data-size="0">
+<li class="" data-startline="381" data-endline="385" data-position="14937" data-size="0"><span data-position="14937" data-size="30">Windows 沒有沒有 Linux 的命令提示字元怎麼辦?</span>
+<div class="alert alert-info" data-position="14972" data-size="88">
+<p data-position="14980" data-size="0"><span data-position="14984" data-size="19">其中一種解法為下載 MobaXterm</span><br>
+<span data-position="15009" data-size="7">官方網址 : </span><b><a href="https://mobaxterm.mobatek.net/" target="_blank" rel="noopener"><span data-position="15019" data-size="30">https://mobaxterm.mobatek.net/</span></a></b></p>
+</div>
+</li>
+<li class="" data-startline="386" data-endline="399" data-position="15064" data-size="0"><span data-position="15064" data-size="22">HTTP Status code的意義為何?</span>
+<div class="alert alert-info" data-position="15091" data-size="502">
+<p data-position="15099" data-size="0"><b><span data-position="15106" data-size="8">200 : OK</span></b><br>
+<span data-position="15159" data-size="15">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;API請求已成功</span></p>
+<p data-position="15179" data-size="0"><b><span data-position="15186" data-size="17">400 : Bad request</span></b><br>
+<span data-position="15245" data-size="71">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由於明顯的客戶端錯誤（例如，格式錯誤的請求語法，太大的大小，無效的請求訊   息或欺騙性路由請求），伺服器不能或不會處理該請求。</span></p>
+<p data-position="15321" data-size="0"><b><span data-position="15328" data-size="15">404 : Not found</span></b><br>
+<span data-position="15385" data-size="64">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;請求失敗，請求所希望得到的資源未被在伺服器上發現（例如，post 的 url 輸入錯誤 )，但允許用戶的後續請求。</span></p>
+<p data-position="15454" data-size="0"><b><span data-position="15461" data-size="27">500 : Internal server error</span></b><br>
+<span data-position="15530" data-size="56">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通用錯誤訊息，伺服器遇到了一個未曾預料的狀況，導致了它無法完成對請求的處理。沒有給出具體錯誤資訊。</span></p>
+</div>
+</li>
+<li class="" data-startline="400" data-endline="404" data-position="15597" data-size="0"><span data-position="15597" data-size="33">使用 Terminal 連線到 server 很容易斷線該怎麼辦?</span>
+<div class="alert alert-info" data-position="15635" data-size="239">
+<p data-position="15643" data-size="0"><span data-position="15682" data-size="7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span data-position="15692" data-size="4">tmux</span></b><span data-position="15700" data-size="11"> 指令會是你的小幫手。</span><br>
+<span data-position="15752" data-size="115">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tmux 會在同一個 session （連線狀態下的執行環境）保存這些視窗和視窗區塊。我們可以在任何時間離開這個連線，tmux 會繼續維持這個 session 直到您把 tmux server 砍掉或者重開機的時候。</span></p>
+</div>
+</li>
+<li class="" data-startline="405" data-endline="416" data-position="15878" data-size="0"><span data-position="15878" data-size="13">Linux 指令怎麼使用?</span>
+<div class="alert alert-info" data-position="15896" data-size="577">
+<p data-position="15904" data-size="0"><span data-position="15908" data-size="19">以下介紹幾個常用的 Linux 指令:</span></p>
+<ul>
+<li class="" data-startline="408" data-endline="411" data-position="15934" data-size="0"><span data-position="15969" data-size="7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span data-position="15979" data-size="8">vim [檔名]</span></b><span data-position="15991" data-size="18"> : 打開並且進入此[檔名]的檔案。</span>
+<ul>
+<li class="" data-startline="409" data-endline="409" data-position="16020" data-size="0"><span data-position="16020" data-size="9">先按 esc，再打</span><b><span data-position="16032" data-size="4"> :q </span></b><span data-position="16040" data-size="8">為不儲存並離開。</span></li>
+<li class="" data-startline="410" data-endline="410" data-position="16059" data-size="0"><span data-position="16059" data-size="9">先按 esc，再打</span><b><span data-position="16071" data-size="4"> :w </span></b><span data-position="16079" data-size="6">為儲存不離開</span></li>
+<li class="" data-startline="411" data-endline="411" data-position="16096" data-size="0"><span data-position="16096" data-size="9">先按 esc，再打</span><b><span data-position="16108" data-size="5"> :wq </span></b><span data-position="16117" data-size="6">為儲存並離開</span></li>
+</ul>
+</li>
+<li class="" data-startline="412" data-endline="412" data-position="16130" data-size="0"><span data-position="16165" data-size="7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span data-position="16175" data-size="7">cd [路徑]</span></b><span data-position="16186" data-size="17"> : 轉換工作目錄至此[路徑]中。</span></li>
+<li class="" data-startline="413" data-endline="413" data-position="16210" data-size="0"><span data-position="16245" data-size="7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span data-position="16255" data-size="2">ls</span></b><span data-position="16261" data-size="15"> : 列出此路徑下的所有檔案。</span></li>
+<li class="" data-startline="414" data-endline="415" data-position="16283" data-size="0"><span data-position="16318" data-size="7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><b><span data-position="16328" data-size="5">mkdir</span></b><span data-position="16337" data-size="10"> : 創建新的目錄。</span><br>
+<span data-position="16352" data-size="22">如果想更深入了解 Linux 指令，可以點選</span><b><a href="https://linux.vbird.org/linux_basic/redhat6.1/linux_06command.php" target="_blank" rel="noopener"><span data-position="16378" data-size="14">鳥哥的Linux指令基本介紹</span></a></b><span data-position="16464" data-size="1">。</span></li>
+</ul>
+</div>
+</li>
+<li class="" data-startline="417" data-endline="424" data-position="16477" data-size="0"><span data-position="16477" data-size="47">我不想一直開著使用者手冊，如何在 Slack 上查詢玉山 Slack Bot 有哪些功能資訊呢</span>
+<div class="alert alert-info" data-position="16529" data-size="112">
+<p data-position="16537" data-size="0"><span data-position="16541" data-size="28">您可以開始開啟Slack與esun_bot 的對話框，輸入</span></p>
+<pre><code class="shell hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">command_list    
+</div></div></code></pre>
+<p data-position="16614" data-size="0"><span data-position="16618" data-size="15">即可看到所有功能選單與使用方式</span></p>
+</div>
+</li>
+</ol></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display: none; left: 448.665px;">
+        <div class="pull-left dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#" role="button" aria-haspopup="true" aria-expanded="false" title="目錄">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel"><div class="toc"><ul class="nav">
+<li><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E3%80%90Gotcha-%E6%88%91%E6%8A%93%E5%BE%97%E4%BD%8F%E4%BD%A0---AML-%E7%84%A6%E9%BB%9E%E4%BA%BA%E7%89%A9%E8%BE%A8%E8%AD%98%E3%80%91-API-%E9%96%8B%E7%99%BC%E8%AA%AA%E6%98%8E%E6%96%87%E4%BB%B6" title="【Gotcha! 我抓得住你 - AML 焦點人物辨識】
+API 開發說明文件" smoothhashscroll="">【Gotcha! 我抓得住你 - AML 焦點人物辨識】
+API 開發說明文件</a></li>
+<li><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#Introduction" title="Introduction" smoothhashscroll="">Introduction</a></li>
+<li><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#Requirements" title="Requirements" smoothhashscroll="">Requirements</a></li>
+<li class="active"><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E6%9E%B6%E8%A8%AD-API-Server" title="架設 API Server" smoothhashscroll="">架設 API Server</a></li>
+<li class=""><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E6%96%BC-Slack-Workspace-%E8%A8%BB%E5%86%8A%E6%AD%A3%E5%BC%8F%E8%B3%BD" title="於 Slack Workspace 註冊正式賽" smoothhashscroll="">於 Slack Workspace 註冊正式賽</a></li>
+<li><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E9%96%8B%E5%A7%8B%E8%A8%93%E7%B7%B4%E8%87%AA%E5%B7%B1%E7%9A%84%E6%A8%A1%E5%9E%8B%E5%90%A7%EF%BC%81" title="開始訓練自己的模型吧！" smoothhashscroll="">開始訓練自己的模型吧！</a></li>
+<li><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E6%B8%AC%E8%A9%A6%E8%B3%BD%E8%88%87%E6%AD%A3%E5%BC%8F%E8%B3%BD" title="測試賽與正式賽" smoothhashscroll="">測試賽與正式賽</a></li>
+<li><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E5%B8%B8%E8%A6%8B-QampA" title="常見 Q&amp;A" smoothhashscroll="">常見 Q&amp;A</a></li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#">全部展開</a><a class="back-to-top" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#">回到頂部</a><a class="go-to-bottom" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#">移至底部</a></div></ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print affix" data-spy="affix" style="top: 61.4199px; left: 203.182px; width: 470px;"><div class="toc"><ul class="nav">
+<li><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E3%80%90Gotcha-%E6%88%91%E6%8A%93%E5%BE%97%E4%BD%8F%E4%BD%A0---AML-%E7%84%A6%E9%BB%9E%E4%BA%BA%E7%89%A9%E8%BE%A8%E8%AD%98%E3%80%91-API-%E9%96%8B%E7%99%BC%E8%AA%AA%E6%98%8E%E6%96%87%E4%BB%B6" title="【Gotcha! 我抓得住你 - AML 焦點人物辨識】
+API 開發說明文件" smoothhashscroll="">【Gotcha! 我抓得住你 - AML 焦點人物辨識】
+API 開發說明文件</a></li>
+<li><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#Introduction" title="Introduction" smoothhashscroll="">Introduction</a></li>
+<li><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#Requirements" title="Requirements" smoothhashscroll="">Requirements</a></li>
+<li class="active"><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E6%9E%B6%E8%A8%AD-API-Server" title="架設 API Server" smoothhashscroll="">架設 API Server</a></li>
+<li class=""><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E6%96%BC-Slack-Workspace-%E8%A8%BB%E5%86%8A%E6%AD%A3%E5%BC%8F%E8%B3%BD" title="於 Slack Workspace 註冊正式賽" smoothhashscroll="">於 Slack Workspace 註冊正式賽</a></li>
+<li><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E9%96%8B%E5%A7%8B%E8%A8%93%E7%B7%B4%E8%87%AA%E5%B7%B1%E7%9A%84%E6%A8%A1%E5%9E%8B%E5%90%A7%EF%BC%81" title="開始訓練自己的模型吧！" smoothhashscroll="">開始訓練自己的模型吧！</a></li>
+<li><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E6%B8%AC%E8%A9%A6%E8%B3%BD%E8%88%87%E6%AD%A3%E5%BC%8F%E8%B3%BD" title="測試賽與正式賽" smoothhashscroll="">測試賽與正式賽</a></li>
+<li><a href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#%E5%B8%B8%E8%A6%8B-QampA" title="常見 Q&amp;A" smoothhashscroll="">常見 Q&amp;A</a></li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#">全部展開</a><a class="back-to-top" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#">回到頂部</a><a class="go-to-bottom" href="https://hackmd.io/@UcQg6jwlT_WL_ZNkPZMm6Q/BJfELe_c8#">移至底部</a></div></div>
+    
+
+    <div class="clearfix"></div>
+    <footer class="hidden-print footer-show">
+        <div class="container-thiner">
+            <div class="footer">
+                <div class="footer__published-by">
+                    發表於 <strong><a href="https://hackmd.io/" target="_blank"><i class="fa fa-file-text"></i> HackMD</a></strong>
+                </div>
+                <div class="footer__views">
+                    <i class="fa fa-eye"></i> <span class="ui-viewcount" title="641">641</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- signin modal -->
+<div class="modal fade signin-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: 10px; right: 20px; position: absolute;"><span aria-hidden="true">×</span></button>
+            
+
+
+
+
+
+
+    
+
+
+
+
+
+
+<h3>登入</h3>
+
+<form data-toggle="validator" role="form" class="form-horizontal" method="post" enctype="application/x-www-form-urlencoded" novalidate="true">
+    <div class="dn"><input type="hidden" name="_csrf" value="gBufos93-CDnQKIK5kcuJyKnFeH2-mFG_lIQ"></div>
+    <div class="dn"><input type="hidden" name="create_team" value="false"></div>
+    <div class="dn"><input type="hidden" name="create_paid_team" value="false"></div>
+    <div class="form-group  ">
+        <label for="email" class="control-label">Email</label>
+        <label for="inputEmail" class="control-label pull-right errors">
+            
+        </label>
+        <span class="help-block control-label with-errors pull-right" style="display: inline;"></span>
+        <div class="input-block">
+            
+                <input type="email" class="form-control" name="email" placeholder="您的 Email" required="" autocomplete="email">
+            
+            <span class="error-sign"></span>
+        </div>
+    </div>
+    <div class="form-group ">
+        <label for="password" class="control-label">密碼</label>
+        <label for="inputPassword" class="control-label pull-right errors">
+            
+        </label>
+        <span class="help-block control-label with-errors pull-right" style="display: inline;"></span>
+        <div class="input-block">
+            <input type="password" class="form-control" name="password" placeholder="您的密碼" required="" autocomplete="current-password">
+            <span class="error-sign"></span>
+            
+                <span class="control-label pull-right" style="font-size: 13px; margin-top: 5px;"><a href="https://hackmd.io/settings/forgotPassword" style="text-decoration: underline;">忘記密碼</a></span>
+            
+        </div>
+    </div>
+
+    <div style="text-align: center; padding-top: 15px; margin-bottom: 0px;">
+        
+            <input type="submit" class="btn btn-success btn-large disabled" formaction="https://hackmd.io/login" value="登入">
+        
+
+        
+    </div>
+</form>
+
+
+
+
+
+
+
+
+    
+        <p class="seperator">或是</p>
+    
+
+    
+        <p>繼續登入，代表您同意<a href="https://hackmd.io/s/terms" target="_blank">服務條款</a>。</p>
+    
+
+    <div class="social-buttons-container">
+    
+    <a href="https://hackmd.io/auth/facebook" class="btn btn-lg btn-block btn-social btn-facebook">
+        <i class="fa fa-facebook"></i> 透過 Facebook 登入
+    </a>
+    
+    
+    <a href="https://hackmd.io/auth/twitter" class="btn btn-lg btn-block btn-social btn-twitter">
+        <i class="fa fa-twitter"></i> 透過 Twitter 登入
+    </a>
+    
+    
+    <a href="https://hackmd.io/auth/github" class="btn btn-lg btn-block btn-social btn-github">
+        <i class="fa fa-github"></i> 透過 GitHub 登入
+    </a>
+    
+    
+    <a href="https://hackmd.io/auth/dropbox" class="btn btn-lg btn-block btn-social btn-dropbox">
+        <i class="fa fa-dropbox"></i> 透過 Dropbox 登入
+    </a>
+    
+    
+    <a href="https://hackmd.io/auth/google" class="btn btn-lg btn-block btn-social btn-google">
+        <i class="icon icon-google"></i> 透過 Google 登入
+    </a>
+    
+    
+</div>
+
+
+
+
+
+    <div>
+        <p>第一次使用 HackMD？ <a href="https://hackmd.io/join">註冊</a></p>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+    
+<script async="" src="./API 開發說明文件_files/js"></script>
+<script nonce="">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    let userid = (document.cookie.match('(^|; )userid=([^;]*)')||0)[2];
+    gtag('config', 'UA-60728495-1', {'user_id': userid});
+</script>
+<script src="./API 開發說明文件_files/bundle.min.js.下載" crossorigin="anonymous"></script>
+<script nonce="">Sentry.init({ dsn: 'https://73410f1915d84abc8b2dd1f1aabd1c82@sentry.hackmd.dev/4', environment: 'production', integrations: function (intrus) { return intrus.filter(function (itr) { return itr.name !== 'TryCatch' }) } });</script>
+
+
+    
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLW9Z3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+    <script src="./API 開發說明文件_files/i18n.js.下載"></script>
+    
+         <script src="./API 開發說明文件_files/font-vendor.3c28db3001b8bd6f1d3f.js.下載" defer="defer"></script><script src="./API 開發說明文件_files/common-vendor.8e4f4d6aba4d3616fff5.js.下載" defer="defer"></script><script src="./API 開發說明文件_files/pretty-vendor.97ba4f331e5cf852bb65.js.下載" defer="defer"></script><script src="./API 開發說明文件_files/pretty-common.4898c7d7c1f70fd6fa0c.js.下載" defer="defer"></script><script src="./API 開發說明文件_files/pretty.96b917057a23f9c47c94.js.下載" defer="defer"></script>
+    
+    
+
+
+
+<div class="ReactModalPortal"></div><div class="ReactModalPortal"></div><div class="ReactModalPortal"></div></body></html>
