@@ -1,2 +1,7 @@
 *.zip
 .vscode/
+.idea/
+*.log
+references/
+src/lib/stanford-corenlp-4.0.0/
+src/lib/stanford-corenlp-4.0.0-models-chinese/
